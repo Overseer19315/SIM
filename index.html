@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d18" />
+  <meta name="description" content="Somewhere in my mind — a little world of poems, thoughts and small discoveries." />
+  <title>Somewhere in My Mind</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Somewhere in My Mind home" data-action="home">
+      <span class="wordmark-mark">S</span>
+      <span>SOMEWHERE <i>IN MY MIND</i></span>
+    </a>
+    <span class="header-note">A LITTLE PLACE TO EXPLORE</span>
+  </header>
+
+  <main class="app-shell" id="top">
+
+    <!-- INTRO -->
+    <section class="screen intro-screen active" id="introScreen" aria-labelledby="introTitle">
+      <div class="intro-content">
+        <p class="eyebrow">A PRIVATE LITTLE UNIVERSE</p>
+        <h1 id="introTitle">Somewhere<br /><em>in my mind.</em></h1>
+        <p class="intro-copy">A few words, a few thoughts, and some little things waiting to be found.</p>
+
+        <button class="primary-button" id="enterButton" type="button">
+          <span>ENTER</span>
+          <span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+
+        <p class="intro-footnote">TAKE YOUR TIME. THERE IS NO RUSH.</p>
+      </div>
+
+      <div class="intro-orbit orbit-one" aria-hidden="true"></div>
+      <div class="intro-orbit orbit-two" aria-hidden="true"></div>
+      <span class="intro-symbol symbol-moon" aria-hidden="true">☾</span>
+      <span class="intro-symbol symbol-star" aria-hidden="true">✦</span>
+    </section>
+
+    <!-- MAIN HUB -->
+    <section class="screen hub-screen" id="hubScreen" aria-labelledby="hubTitle" hidden>
+      <div class="section-heading hub-heading">
+        <div>
+          <p class="eyebrow">A SMALL COLLECTION OF LITTLE THINGS</p>
+          <h2 id="hubTitle">Choose where<br /><em>to wander.</em></h2>
+        </div>
+        <p class="heading-aside">Nothing to rush.<br />Explore in any order.</p>
+      </div>
+
+      <div class="overall-progress" aria-live="polite">
+        <div class="progress-label-row">
+          <span>YOUR LITTLE JOURNEY</span>
+          <strong id="overallProgressText">0 / 22 DISCOVERED</strong>
+        </div>
+        <div class="progress-track">
+          <span id="overallProgressFill"></span>
+        </div>
+      </div>
+
+      <div class="section-grid">
+        <button class="section-card card-poems" type="button" data-open-section="poems">
+          <span class="card-number">01</span>
+          <span class="card-art art-paper" aria-hidden="true"><span>✧</span></span>
+          <span class="card-copy">
+            <strong>LITTLE POEMS</strong>
+            <small>Eight little poems</small>
+          </span>
+          <span class="card-progress" id="poemsCardProgress">0 / 8</span>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </button>
+
+        <button class="section-card card-thoughts" type="button" data-open-section="thoughts">
+          <span class="card-number">02</span>
+          <span class="card-art art-notes" aria-hidden="true"><span>…</span></span>
+          <span class="card-copy">
+            <strong>UNSENT THOUGHTS</strong>
+            <small>Ten thoughts never sent</small>
+          </span>
+          <span class="card-progress" id="thoughtsCardProgress">0 / 10</span>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </button>
+
+        <button class="section-card card-universe" type="button" data-open-section="universe">
+          <span class="card-number">03</span>
+          <span class="card-art art-universe" aria-hidden="true"><span>✦</span></span>
+          <span class="card-copy">
+            <strong>SMALL UNIVERSE</strong>
+            <small>Four things to discover</small>
+          </span>
+          <span class="card-progress" id="universeCardProgress">0 / 4</span>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </button>
+
+        <button class="section-card card-ending is-locked" id="endingCard" type="button" data-open-ending disabled>
+          <span class="card-number">04</span>
+          <span class="card-art art-door" aria-hidden="true"><span>⌑</span></span>
+          <span class="card-copy">
+            <strong>SOMETHING ELSE</strong>
+            <small id="endingCardDescription">A little something, still hidden</small>
+          </span>
+          <span class="lock-mark" id="endingLock" aria-label="Locked">⌑</span>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+
+      <p class="hub-footer">MADE OF SMALL THINGS. THAT'S ALL.</p>
+    </section>
+
+    <!-- LITTLE POEMS -->
+    <section class="screen collection-screen" id="poemsScreen" aria-labelledby="poemsTitle" hidden>
+      <div class="top-navigation">
+        <button class="back-link" type="button" data-back-hub>
+          <span aria-hidden="true">←</span> BACK TO THE COLLECTION
+        </button>
+        <span class="chapter-number">01 / 04</span>
+      </div>
+
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow">A FEW WORDS, LEFT HERE</p>
+          <h2 id="poemsTitle">Little <em>poems.</em></h2>
+          <p class="section-intro">Eight small pieces. Read them in any order.</p>
+        </div>
+
+        <button class="kiwi-secret" type="button" data-action="kiwi-secret" aria-label="A tiny hidden secret" title="A tiny hidden secret">🥝</button>
+      </div>
+
+      <div class="collection-meta">
+        <span>THE POEM COLLECTION</span>
+        <strong id="poemsProgress">0 / 8 READ</strong>
+      </div>
+
+      <div class="content-grid" id="poemGrid"></div>
+    </section>
+
+    <!-- UNSENT THOUGHTS -->
+    <section class="screen collection-screen" id="thoughtsScreen" aria-labelledby="thoughtsTitle" hidden>
+      <div class="top-navigation">
+        <button class="back-link" type="button" data-back-hub>
+          <span aria-hidden="true">←</span> BACK TO THE COLLECTION
+        </button>
+        <span class="chapter-number">02 / 04</span>
+      </div>
+
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow">THINGS THAT STAYED IN MY HEAD</p>
+          <h2 id="thoughtsTitle">Unsent <em>thoughts.</em></h2>
+          <p class="section-intro">Little notes that never really needed to be sent.</p>
+        </div>
+        <span class="heading-ornament" aria-hidden="true">✳</span>
+      </div>
+
+      <div class="collection-meta">
+        <span>NOTES FROM SOMEWHERE</span>
+        <strong id="thoughtsProgress">0 / 10 READ</strong>
+      </div>
+
+      <div class="content-grid thoughts-grid" id="thoughtGrid"></div>
+    </section>
+
+    <!-- SMALL UNIVERSE -->
+    <section class="screen universe-screen" id="universeScreen" aria-labelledby="universeTitle" hidden>
+      <div class="top-navigation">
+        <button class="back-link" type="button" data-back-hub>
+          <span aria-hidden="true">←</span> BACK TO THE COLLECTION
+        </button>
+        <span class="chapter-number">03 / 04</span>
+      </div>
+
+      <div class="universe-heading-row">
+        <div>
+          <p class="eyebrow">A LITTLE WORLD OF LITTLE THINGS</p>
+          <h2 id="universeTitle">Small <em>universe.</em></h2>
+          <p class="section-intro">Pick something. See where it takes you.</p>
+        </div>
+
+        <div class="universe-count">
+          <strong id="universeProgress">0 / 4</strong>
+          <span>DISCOVERED</span>
+        </div>
+      </div>
+
+      <div class="universe-stage" id="universeStage">
+        <div class="universe-nebula nebula-left" aria-hidden="true"></div>
+        <div class="universe-nebula nebula-right" aria-hidden="true"></div>
+        <div class="universe-orbit universe-orbit-a" aria-hidden="true"></div>
+        <div class="universe-orbit universe-orbit-b" aria-hidden="true"></div>
+
+        <button class="universe-object object-moon" type="button" data-object-id="moon" aria-label="Explore the moon">
+          <span class="object-visual moon-visual" aria-hidden="true">☾</span>
+          <span class="object-label">THE MOON</span>
+          <span class="object-check" aria-hidden="true">✓</span>
+        </button>
+
+        <button class="universe-object object-stars" type="button" data-object-id="stars" aria-label="Explore the stars">
+          <span class="object-visual stars-visual" aria-hidden="true">✦</span>
+          <span class="object-label">THE STARS</span>
+          <span class="object-check" aria-hidden="true">✓</span>
+        </button>
+
+        <button class="universe-object object-clouds" type="button" data-object-id="clouds" aria-label="Explore the clouds">
+          <span class="object-visual clouds-visual" aria-hidden="true">☁</span>
+          <span class="object-label">THE CLOUDS</span>
+          <span class="object-check" aria-hidden="true">✓</span>
+        </button>
+
+        <button class="universe-object object-comet" type="button" data-object-id="comet" aria-label="Explore the comet">
+          <span class="comet-tail" aria-hidden="true"></span>
+          <span class="object-visual comet-visual" aria-hidden="true">☄</span>
+          <span class="object-label">THE COMET</span>
+          <span class="object-check" aria-hidden="true">✓</span>
+        </button>
+
+        <p class="stage-caption">THE UNIVERSE IS YOURS TO EXPLORE</p>
+      </div>
+    </section>
+
+    <!-- FINAL DOOR -->
+    <section class="screen ending-room" id="endingScreen" aria-labelledby="endingTitle" hidden>
+      <div class="top-navigation">
+        <button class="back-link" type="button" data-back-hub>
+          <span aria-hidden="true">←</span> BACK TO THE COLLECTION
+        </button>
+        <span class="chapter-number">04 / 04</span>
+      </div>
+
+      <div class="ending-room-content">
+        <p class="eyebrow">YOU FOUND SOMETHING NEW</p>
+        <h2 id="endingTitle">Something <em>else.</em></h2>
+        <p class="section-intro">There's just one more thing.</p>
+
+        <button class="final-door" id="openFinalDoor" type="button" aria-label="Open the final door">
+          <span class="door-light"></span>
+          <span class="door-frame"><span class="door-handle"></span></span>
+        </button>
+
+        <p class="door-hint">OPEN THE DOOR</p>
+      </div>
+    </section>
+
+    <!-- FINAL MESSAGE -->
+    <section class="screen final-screen" id="finalScreen" aria-labelledby="finalMessage" hidden>
+      <div class="final-message-wrap">
+        <p class="eyebrow final-eyebrow">SOMEWHERE IN MY MIND</p>
+        <h2 id="finalMessage">Some people make ordinary days feel <em>a little different.</em></h2>
+        <p class="final-subline">SOME THINGS DON'T NEED EXPLANATIONS.</p>
+        <span class="final-divider" aria-hidden="true"></span>
+        <p class="final-end">END OF EXPERIENCE</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHARED READING WINDOW -->
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-inner">
+      <div class="dialog-topline">
+        <span class="dialog-eyebrow" id="dialogEyebrow">A LITTLE NOTE</span>
+        <button class="dialog-back" id="closeDialog" type="button">
+          <span aria-hidden="true">←</span> BACK
+        </button>
+      </div>
+
+      <h3 id="dialogTitle">A title</h3>
+      <div class="dialog-body" id="dialogBody"></div>
+      <div class="dialog-extra" id="dialogExtra"></div>
+      <span class="dialog-small-mark" aria-hidden="true">✧</span>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+  </html>
